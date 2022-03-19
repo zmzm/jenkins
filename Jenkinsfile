@@ -10,11 +10,17 @@
 
 // DECLARATIVE PIPLINE
 pipeline {
-  agent any //environment for build running
+  //environment for build running
+  agent {
+    docker {
+      image 'node:14-alpine3.11'
+    }
+  }
   stages {
     stage('Build') {
       steps {
         echo 'Build'
+        sh 'node --version'
       }
     }
     stage('Test') {
@@ -28,7 +34,7 @@ pipeline {
       echo 'Runs always'
     }
     success {
-      echo 'Runs when all stages sccussfully completed'
+      echo 'Runs when all stages successfully completed'
     }
     failure {
       echo 'Runs when stage failed'
