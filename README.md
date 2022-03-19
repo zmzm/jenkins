@@ -16,3 +16,15 @@
 - Step 10 - Running Unit Tests and Integration Tests in Jenkins Pipelines - 2
 - Step 11 - Build and Push Docker Image in Jenkins Pipelines - 1
 - Step 12 - Build and Push Docker Image in Jenkins Pipelines - 2
+
+## Problems
+  - ### Docker is not accessible inside jenkins, permision denied for any operation with docker agent.
+    Check if docker group exist inside jenkins container
+    ```text
+    cat /etc/group
+    ````
+    Install docker inside jenkins container
+    ```text
+    apt-get update && apt-get install -y docker.io
+    ```
+    Detailed solution can be found [here](https://medium.com/swlh/getting-permission-denied-error-when-pulling-a-docker-image-in-jenkins-docker-container-on-mac-b335af02ebca).
