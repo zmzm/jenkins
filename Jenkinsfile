@@ -11,16 +11,18 @@
 // DECLARATIVE PIPLINE
 pipeline {
   //environment for build running
-  agent {
-    docker {
-      image 'node:14-alpine3.11'
-    }
+  agent any
+  environment {
+    dockerHome = tool 'myDocker'
+    nodeJsHome = tool 'myNodeJs'
+    PATH = "${dockerHome}/bin:${nodeJsHome}/bin:${PATH}"
   }
   stages {
     stage('Build') {
       steps {
         echo 'Build'
         sh 'node --version'
+        sh 'docker version'
         echo "PATH - ${PATH}"
         echo "BULD_NUMBER - ${env.BUILD_NUMBER}"
         echo "BULD_ID - ${env.BUILD_ID}"
