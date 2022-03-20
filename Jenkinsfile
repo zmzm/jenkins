@@ -21,6 +21,9 @@ pipeline {
       steps {
         echo 'Build'
         sh 'node --version'
+        echo "PATH - ${PATH}"
+        echo "BULD_NUMBER - ${env.BUILD_NUMBER}"
+        echo "BULD_ID - ${env.BUILD_ID}"
       }
     }
     stage('Test') {
