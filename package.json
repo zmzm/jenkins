@@ -19,7 +19,8 @@
     "helmet": "^4.6.0",
     "node-polyfill-webpack-plugin": "^1.1.4",
     "normalize-port": "^1.0.0",
-    "webpack-node-externals": "3.0.0"
+    "webpack-node-externals": "3.0.0",
+    "winston": "3.6.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",

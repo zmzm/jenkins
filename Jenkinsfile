@@ -18,7 +18,7 @@ pipeline {
     PATH = "${dockerHome}/bin:${nodeJsHome}/bin:${PATH}"
   }
   stages {
-    stage('Build') {
+    stage('Checkout') {
       steps {
         echo 'Build'
         sh 'node --version'
@@ -28,9 +28,15 @@ pipeline {
         echo "BULD_ID - ${env.BUILD_ID}"
       }
     }
-    stage('Test') {
+    stage('Build') {
       steps {
-        echo 'Test'
+        sh 'npm ci'
+        sh 'npm run build'
+      }
+    }
+    stage('JS lint') {
+      steps {
+        sh 'npm run jslint'
       }
     }
   }

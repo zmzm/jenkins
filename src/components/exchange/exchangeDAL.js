@@ -1,3 +1,4 @@
+const logger = require('../../logger');
 const Database = require('../database');
 
 class ExchangeDAL {
@@ -11,7 +12,7 @@ class ExchangeDAL {
 
       return exchange;
     } catch (error) {
-      console.log(error);
+      logger.error(error);
     }
   };
 }

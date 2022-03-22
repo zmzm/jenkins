@@ -1,9 +1,11 @@
 # Jenkins
 
 ## Projects
+
 - Create Pipeline to Build and Push Docker Image for a Microservice
 
 ## Steps
+
 - Step 01 - Introduction and Launching Jenkins as Docker Container
 - Step 02 - Initializing Jenkins Plugins and Creating Github Repo
 - Step 03 - Setting up Docker and Maven in Jenkins and First Pipeline Run
@@ -18,13 +20,19 @@
 - Step 12 - Build and Push Docker Image in Jenkins Pipelines - 2
 
 ## Problems
-  - ### Docker is not accessible inside jenkins, permision denied for any operation with docker agent.
-    Check if docker group exist inside jenkins container
-    ```text
-    cat /etc/group
-    ````
-    Install docker inside jenkins container
-    ```text
-    apt-get update && apt-get install -y docker.io
-    ```
-    Detailed solution can be found [here](https://medium.com/swlh/getting-permission-denied-error-when-pulling-a-docker-image-in-jenkins-docker-container-on-mac-b335af02ebca).
+
+- ### Docker is not accessible inside jenkins, permision denied for any operation with docker agent.
+
+  Check if docker group exist inside jenkins container
+
+  ```text
+  cat /etc/group
+  ````
+
+  Install docker inside jenkins container
+
+  ```text
+  apt-get update && apt-get install -y docker.io
+  ```
+  
+  Detailed solution can be found [here](https://medium.com/swlh/getting-permission-denied-error-when-pulling-a-docker-image-in-jenkins-docker-container-on-mac-b335af02ebca).
