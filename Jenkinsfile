@@ -39,6 +39,22 @@ pipeline {
         sh 'npm run jslint'
       }
     }
+    stage('Build Docker image') {
+      steps {
+        script {
+          dockerImage = docker.build("vladjik00raskladjik/currency-exchange-devops:${env.BUILD_TAG}")
+        }
+      }
+    }
+    stage('Push Docker image') {
+      steps {
+        script {
+          docker.withRegistry('', 'dockerhub') {
+            dockerImage.push()
+          }
+        }
+      }
+    }
   }
   post {
     always {
